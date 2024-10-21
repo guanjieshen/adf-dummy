@@ -1,0 +1,21 @@
+{
+	"name": "guanjie_dbx_cac_jobs",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-3951324636316155.15.azuredatabricks.net",
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/edd4cc45-85c7-4aec-8bf5-648062d519bf/resourceGroups/guanjie-rg-cac/providers/Microsoft.Databricks/workspaces/guanjie_dbx_cac",
+			"newClusterNodeType": "Standard_D4pds_v6",
+			"newClusterNumOfWorker": "1",
+			"newClusterSparkEnvVars": {
+				"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+			},
+			"newClusterVersion": "15.4.x-scala2.12",
+			"clusterOption": "Fixed",
+			"newClusterInitScripts": []
+		}
+	}
+}

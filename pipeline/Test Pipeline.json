@@ -1,0 +1,61 @@
+{
+	"name": "Test Pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Serverless Notebook",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Databricks - Run Serverless Notebook v2",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"DatabricksNotebookPath": "/Workspace/Shared/test",
+						"DatabricksWorkspaceID": "adb-3951324636316155.15",
+						"ADFWaitSeconds": 10
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Execute Serverless Notebook",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "test",
+							"value": {
+								"type": "Expression",
+								"content": "@activity('Execute Serverless Notebook').output.pipelineReturnValue.notebookOutputResult"
+							}
+						}
+					],
+					"setSystemVariable": true
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-10-21T23:21:46Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

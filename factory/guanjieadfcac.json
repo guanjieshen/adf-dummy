@@ -1,0 +1,9 @@
+{
+	"name": "guanjieadfcac",
+	"location": "canadacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cf7f6f67-0d6d-421e-860f-c5dc22c86af1",
+		"tenantId": "bf465dc7-3bc8-4944-b018-092572b5c20d"
+	}
+}

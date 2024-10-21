@@ -1,0 +1,30 @@
+{
+	"name": "Test Non-Serverless",
+	"properties": {
+		"activities": [
+			{
+				"name": "Non Serverless Test",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Shared/test"
+				},
+				"linkedServiceName": {
+					"referenceName": "guanjie_dbx_cac_jobs",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-10-21T16:39:31Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
